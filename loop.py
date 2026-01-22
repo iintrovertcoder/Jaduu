@@ -16,7 +16,7 @@ def restart_script():
 def main():
     process = restart_script()
     while True:
-        time.sleep(480)  # @JAAT_POWER # Sleep for 30 seconds
+        time.sleep(480)  # @iintrovertcoder # Sleep for 30 seconds
         # @iintrovertcoder # Send Ctrl+C signal to the process
         process.send_signal(signal.SIGINT)
         # @iintrovertcoder # Wait for the process to terminate
