@@ -55,7 +55,7 @@
 
 
 
-# @PrivateFileTg #bgmiddoserpython
+# @iintrovertcoder #bgmiddoserpython
 
 import telebot
 import subprocess
@@ -63,22 +63,22 @@ import requests
 import datetime
 import os
 
-# @PrivateFileTg #from keep_alive import keep_alive
-# @PrivateFileTg #keep_alive()
-# @PrivateFileTg # insert your Telegram bot token here
+# @iintrovertcoder #from keep_alive import keep_alive
+# @iintrovertcoder #keep_alive()
+# @iintrovertcoder # insert your Telegram bot token here
 bot = telebot.TeleBot('7238286079:AAEpX3YZfEcfxa46coHhAlTUoH0py5wL4Z8')
 
-# @PrivateFileTg # Admin user IDs
+# @iintrovertcoder # Admin user IDs
 admin_id = ["1942081155"]
 
-# @PrivateFileTg # File to store allowed user IDs
+# @iintrovertcoder # File to store allowed user IDs
 USER_FILE = "users.txt"
 
-# @PrivateFileTg # File to store command logs
+# @iintrovertcoder # File to store command logs
 LOG_FILE = "log.txt"
 
 
-# @PrivateFileTg # List of proxy addresses
+# @iintrovertcoder # List of proxy addresses
 PROXIES = [
     "https://192.73.244.36:80",
 "https://198.49.68.80:80",
@@ -271,7 +271,7 @@ PROXIES = [
 "https://134.73.64.15:6300",
 "https://156.239.49.201:3128",
 "https://134.73.65.97:6649"
-    # @PrivateFileTg # Add more proxy addresses as needed
+    # @iintrovertcoder # Add more proxy addresses as needed
 ]
 
 def read_users():
@@ -281,7 +281,7 @@ def read_users():
     except FileNotFoundError:
         return []
 
-# @PrivateFileTg # Function to read free user IDs and their credits from the file
+# @iintrovertcoder # Function to read free user IDs and their credits from the file
 def read_free_users():
     try:
         with open(FREE_USER_FILE, "r") as file:
@@ -299,7 +299,7 @@ def read_free_users():
 
 allowed_user_ids = read_users()
 
-# @PrivateFileTg # Function to log command to the file
+# @iintrovertcoder # Function to log command to the file
 def log_command(user_id, target, port, time):
     user_info = bot.get_chat(user_id)
     if user_info.username:
@@ -311,7 +311,7 @@ def log_command(user_id, target, port, time):
         file.write(f"Username: {username}\nTarget: {target}\nPort: {port}\nTime: {time}\n\n")
 
 
-# @PrivateFileTg # Function to clear logs
+# @iintrovertcoder # Function to clear logs
 def clear_logs():
     try:
         with open(LOG_FILE, "r+") as file:
@@ -324,7 +324,7 @@ def clear_logs():
         response = "No logs found to clear."
     return response
 
-# @PrivateFileTg # Function to record command logs
+# @iintrovertcoder # Function to record command logs
 def record_command_logs(user_id, command, target=None, port=None, time=None):
     log_entry = f"UserID: {user_id} | Time: {datetime.datetime.now()} | Command: {command}"
     if target:
@@ -465,7 +465,7 @@ def show_user_id(message):
     response = f"🤖Your ID: {user_id}"
     bot.reply_to(message, response)
 
-# @PrivateFileTg # Function to handle the reply when free users run the /bgmi command
+# @iintrovertcoder # Function to handle the reply when free users run the /bgmi command
 def start_attack_reply(message, target, port, time):
     user_info = message.from_user
     username = user_info.username if user_info.username else user_info.first_name
@@ -473,12 +473,12 @@ def start_attack_reply(message, target, port, time):
     response = f"{username}, 𝐀𝐓𝐓𝐀𝐂𝐊 𝐒𝐓𝐀𝐑𝐓𝐄𝐃.🔥🔥\n\n𝐓𝐚𝐫𝐠𝐞𝐭: {target}\n𝐏𝐨𝐫𝐭: {port}\n𝐓𝐢𝐦𝐞: {time} 𝐒𝐞𝐜𝐨𝐧𝐝𝐬\n𝐌𝐞𝐭𝐡𝐨𝐝: BGMI"
     bot.reply_to(message, response)
 
-# @PrivateFileTg # Dictionary to store the last time each user ran the /bgmi command
+# @iintrovertcoder # Dictionary to store the last time each user ran the /bgmi command
 bgmi_cooldown = {}
 
 COOLDOWN_TIME =0
 
-# @PrivateFileTg # Handler for /bgmi command
+# @iintrovertcoder # Handler for /bgmi command
 @bot.message_handler(commands=['bgmi'])
 def handle_bgmi(message):
     user_id = str(message.chat.id)
@@ -516,7 +516,7 @@ def handle_bgmi(message):
 
 
 
-# @PrivateFileTg # Add /mylogs command to display logs recorded for bgmi and website commands
+# @iintrovertcoder # Add /mylogs command to display logs recorded for bgmi and website commands
 @bot.message_handler(commands=['mylogs'])
 def show_command_logs(message):
     user_id = str(message.chat.id)
@@ -548,7 +548,7 @@ def show_help(message):
 🤖 To See Admin Commands:
 💥 /admincmd : Shows All Admin Commands.
 
-By @JAAT_POWER
+By @iamyourdadbaby
 '''
     for handler in bot.message_handlers:
         if hasattr(handler, 'commands'):
@@ -565,7 +565,7 @@ def welcome_start(message):
     user_name = message.from_user.first_name
     response = f'''👋🏻Welcome to Your Home, {user_name}! Feel Free to Explore.
 🤖Try To Run This Command : /help 
-✅Join :- By @JAAT_POWER'''
+✅Join :- By @iamyourdadbaby'''
     bot.reply_to(message, response)
 
 @bot.message_handler(commands=['rules'])
@@ -668,16 +668,16 @@ import requests
 import datetime
 import os
 
-# @PrivateFileTg # Import the 'time' module for sleep functionality
+# @iintrovertcoder # Import the 'time' module for sleep functionality
 import time
 
-# @PrivateFileTg # insert your Telegram bot token here
+# @iintrovertcoder # insert your Telegram bot token here
 
 
-# @PrivateFileTg # File to store allowed user IDs
+# @iintrovertcoder # File to store allowed user IDs
 USER_FILE = "users.txt"
 
-# @PrivateFileTg # File to store command logs
+# @iintrovertcoder # File to store command logs
 LOG_FILE = "log.txt"
 
 
@@ -690,7 +690,7 @@ def read_users():
 
 allowed_user_ids = read_users()
 
-# @PrivateFileTg # Function to log command to the file
+# @iintrovertcoder # Function to log command to the file
 def log_command(user_id, target, port, time):
     user_info = bot.get_chat(user_id)
     if user_info.username:
@@ -701,7 +701,7 @@ def log_command(user_id, target, port, time):
     with open(LOG_FILE, "a") as file:  # @PrivateFileTg # Open in "append" mode
         file.write(f"Username: {username}\nTarget: {target}\nPort: {port}\nTime: {time}\n\n")
 
-# @PrivateFileTg # Function to clear logs
+# @iintrovertcoder # Function to clear logs
 def clear_logs():
     try:
         with open(LOG_FILE, "r+") as file:
@@ -714,7 +714,7 @@ def clear_logs():
         response = "No logs found to clear."
     return response
 
-# @PrivateFileTg # Function to record command logs
+# @iintrovertcoder # Function to record command logs
 def record_command_logs(user_id, command, target=None, port=None, time=None):
     log_entry = f"UserID: {user_id} | Time: {datetime.datetime.now()} | Command: {command}"
     if target:
