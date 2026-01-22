@@ -2,13 +2,13 @@ import subprocess
 import time
 import psutil
 
-# @JAAT_POWER # Define the command to send to the terminal
+# @iintrovertcoder # Define the command to send to the terminal
 command = "echo 'Script stopped, restarting...' && python loop.py"
 
-# @JAAT_POWER # Define the script to monitor
+# @iintrovertcoder # Define the script to monitor
 script_to_monitor = "loop.py"
 
-# @JAAT_POWER # Get the process ID of the script to monitor
+# @iintrovertcoder # Get the process ID of the script to monitor
 script_pid = None
 for proc in psutil.process_iter():
     try:
@@ -22,19 +22,19 @@ if script_pid is None:
     print(f"Could not find process for {script_to_monitor}")
     exit()
 
-# @JAAT_POWER # Monitor the script
+# @iintrovertcoder # Monitor the script
 while True:
     try:
-        # @JAAT_POWER # Check if the script is still running
+        # @iintrovertcoder # Check if the script is still running
         proc = psutil.Process(script_pid)
         if not proc.is_running():
-            # @JAAT_POWER # If the script is not running, send the command to the terminal
+            # @iintrovertcoder # If the script is not running, send the command to the terminal
             subprocess.run(command, shell=True)
 
-            # @JAAT_POWER # Wait for 10 seconds before checking again
+            # @iintrovertcoder # Wait for 10 seconds before checking again
             time.sleep(10)
 
-            # @JAAT_POWER # Get the new process ID of the script
+            # @iintrovertcoder # Get the new process ID of the script
             script_pid = None
             for proc in psutil.process_iter():
                 try:
@@ -48,13 +48,13 @@ while True:
                 print(f"Could not find process for {script_to_monitor}")
                 exit()
     except psutil.NoSuchProcess:
-        # @JAAT_POWER # If the script process does not exist, send the command to the terminal
+        # @iintrovertcoder # If the script process does not exist, send the command to the terminal
         subprocess.run(command, shell=True)
 
-        # @JAAT_POWER # Wait for 10 seconds before checking again
+        # @iintrovertcoder # Wait for 10 seconds before checking again
         time.sleep(10)
 
-        # @JAAT_POWER # Get the new process ID of the script
+        # @iintrovertcoder # Get the new process ID of the script
         script_pid = None
         for proc in psutil.process_iter():
             try:
